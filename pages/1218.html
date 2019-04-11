@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>部门管理</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="../lib/bootstrap-3.3.5-dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../css/bumen_manange.css">
+</head>
+<body>
+    <div class="container" id="department_mainDiv">
+        <div class="row">
+            <div class="col-lg-12 topweizhi">
+                <button  type="button" class="add btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">添加</button>
+                <!--add模态框1-->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">添加部门</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-10 col-md-offset-2">
+                                        <span>部门名称：</span>
+                                        <input class="myInput" type="text" id="bumenName" placeholder="请输入部门名称!" maxlength="20"><br><br>
+                                        <span>部门描述：</span>
+                                        <input class="myInput" type="text" id="bumenDescribe" placeholder="请描述部门!" maxlength="20"><br><br>
+                                        <span>部门人数：</span>
+                                        <input class="myInput" type="text" id="bumenNum" placeholder="请输入部门人数!" maxlength="2">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn-default cancel" data-dismiss="modal">取消</button>
+                                <button type="button" class="btn-primary save" data-dismiss="modal">保存</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--lookModal-->
+                <div class="modal fade" id="myLookModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">查看部门成员</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <table id="lookTable" class="table table-hover table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>姓名</th>
+                                                <th>电话号码</th>
+                                                <th>状态</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--首页table-->
+                <table id="department_mytable" class="table table-hover table-bordered table-striped">
+                    <thead><tr class="info"></tr></thead>
+                    <tbody><tr></tr></tbody>
+                </table>
+                <!--分页-->
+                <nav aria-label="Page navigation" id="nav_fenye">
+                    <ul class="pagination" id="nav_ul">
+                        <li >
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">上一页</span>
+                            </a>
+                        </li>
+                        <li id="li1">
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">下一页</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Small modal -->
+    <div class="modal fade bs-example-modal-sm" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="smallModalText">无法删除当前登录的管理员！</div>
+          </div>
+        </div>
+      </div>
+<script src="../lib/bootstrap-3.3.5-dist/js/jquery-1.11.3.js"></script>
+<script src="../lib/bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+<!-- <script src="../js/data.js"></script>
+<script src="../js/bumendata.js"></script> -->
+<script>
+    var bumensData = sessionStorage.getItem('bumens');
+    bumens = JSON.parse(bumensData);
+    var thisTeacher = sessionStorage.getItem('userTeacher');
+    teachers = JSON.parse(thisTeacher);
+
+    const pageNum =9
+    //=========添加thead&tbody=============
+    function pageContent(table,countNum,arr,mybool) {
+        // 第一步添加表头
+        if (mybool) {
+            for (let item in arr[0]) {
+                if (item=="bumenName") {
+                    $("#department_mytable thead tr").append("<th class='partName'>部门名称</th>")
+                }
+                else if (item=="bumenDescribe") {
+                    $("#department_mytable thead tr").append("<th>部门描述</th>")
+                }
+                else if (item=="bumenNum") {
+                    $("#department_mytable thead tr").append("<th>部门人数</th>")
+                }
+            }
+            $("#department_mytable thead tr").append("<th>操作</th>")
+            $("table thead tr th").css({
+                textAlign:"center"
+            })
+        }
+        // ========当做到点击某一页 显示数据的时候==============
+        $(`${table} tbody`).html("")
+        // ==============第二步添加tbody
+        for (let i=countNum;i<countNum+pageNum;i++){
+            if (i<arr.length) {
+                $(`${table} tbody`).append(`
+                    <tr>
+                        <td>${arr[i].bumenName}</td>
+                        <td>${arr[i].bumenDescribe}</td>
+                        <td>${arr[i].bumenNum}</td>
+                        <td><button class="myLook">查看</button>
+                            <button class="myEdit">编辑</button>
+                            <button class="myDelete">删除</button>
+                        </td>
+                    </tr>
+                `)
+                $("table tbody tr td").css({
+                    textAlign:"center"
+                })
+            }
+        }
+    }
+    /* 分页绑定 */
+    function pageBtn(element,arr){
+        for (let i =0;i<Math.ceil(arr.length/pageNum);i++) {
+            $(element).before(`
+                <li class="btnList"><a href="#">${i+1}</a></li>
+                `)
+            // console.log(Math.ceil(arr.length/pageNum))
+        }
+    }
+    // =============查看某一行================
+    $("tbody").on("click",".myLook",function () {
+        $('#myLookModal').modal();
+        $(`#lookTable tbody`).html("")
+            for(let i=0;i<teachers.length;i++) {
+                if ($(this).parent().parent().children()[0].innerText == teachers[i].section) {
+                    $("#lookTable tbody").append(
+                        `<tr>
+                     <td>${teachers[i].teacherName}</td>
+                     <td>${teachers[i].teacherCall}</td>
+                     <td>在职</td>
+                </tr>`)
+                    $("table tbody tr td").css({
+                        textAlign:"center"
+                    })
+                }
+            }
+    })
+    //===========编辑某一行==================
+
+    $("tbody").on("click",".myEdit",function(){
+        $(this).text("保存");
+        $(this).parent().siblings("td").each(function(){//找同类元素td
+            var is_text = $(this).find("input:text");//判断单元格下是否含有文本框
+            if (!is_text.length) {
+                $(this).html("<input size='20' type='text' value=' "+$(this).text()+" ' />");
+            }
+            else
+                $(this).html(is_text.val());
+        })
+        $("tbody").on("click",".myEdit",function(){
+            $(this).text("编辑")
+        })
+    })
+    // ===========加载页面时运行=============
+    $(document).ready(function () {
+        pageContent( "#department_mytable",0,bumens,true)
+        pageBtn("#li1",bumens)
+        $("#nav_ul").on("click",".btnList",function () {
+            // 语法$(selector).on(event,childSelector,data,function)
+            let page= $(this).text()
+            // console.log(page)
+            page=(page-1)*pageNum
+            pageContent( "#department_mytable",page,bumens,false)
+            function nextPage() {
+            }
+        })
+    })
+    //============删除本行============
+    $("tbody").on("click",".myDelete",function () {
+        let m=parseInt($(this).parent().parent().children()[2].innerText);
+        console.log($(this).parent().parent().children().eq(0).text())
+            if (m==0){
+                //获取删除的部门名字
+                let thisBuMenName = $(this).parent().parent().children().eq(0).text();
+                //页面删除本部门
+                $(this).parent().parent().remove();
+                //清除数据本部门
+                for(let i=0;i<bumens.length;i++){
+                    if(thisBuMenName.trim(thisBuMenName)==bumens[i].bumenName){
+                        bumens.splice(i,1)
+                    }
+                }
+                //存入缓存
+                sessionStorage.setItem('bumens', JSON.stringify(bumens))
+            }else {
+                $('#smallModal').modal();
+                $('.smallModalText').text("该部门里还有成员，不能删除！")
+            }
+    })
+    // 保存
+    $("#myModal .save").click(function () {
+        if ($("#bumenName").val()&&$("#bumenDescribe").val()&&$("#bumenNum").val()){
+            bumens.push({
+                bumenName:$("#bumenName").val(),
+                bumenDescribe:$("#bumenDescribe").val(),
+                bumenNum:$("#bumenNum").val(),
+            });
+        } else {
+            $('#smallModal').modal();
+            $('.smallModalText').text("必填信息不能为空！")
+            return;
+        }
+        let i=bumens.length-1
+        $("#department_mytable tbody").append(
+            `<tr>
+               <td>${bumens[i].bumenName}</td>
+               <td>${bumens[i].bumenDescribe}</td>
+               <td>${bumens[i].bumenNum}</td>
+                <td>
+                    <span class="myLook">查看</span>
+                    <span class="myEdit">编辑</span>
+                    <span class="myDelete">删除</span>
+                </td>
+            </tr>`
+        )
+        //存入缓存
+        sessionStorage.setItem('bumens', JSON.stringify(bumens))
+        $("input").val("");
+    })
+</script>
+</body>
+</html>

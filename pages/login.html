@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录</title>
+    <link rel="stylesheet" href="../lib/bootstrap-3.3.5-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../font/iconfont.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-xs-12 login-bg">
+                <div class="row">
+                    <div class="col-lg-12 col-xs-12 login-text">
+                        <p>安安幼儿园登录系统</p>
+                    </div>
+                    <form>
+                        <div class="col-lg-4 col-xs-4 col-lg-offset-4 col-xs-offset-4 login-from">
+                            <div class="login-userNameDiv">
+                                <span class="iconfont">&#xe619;</span>
+                                <input type="text" name="userName" id="userName" placeholder="请输入账号">
+                            </div>
+                            <div class="login-userPasswordDiv">
+                                <span class="iconfont">&#xe607;</span>
+                                <input type="password" name="password" id="userPassword"  placeholder="请输入密码">
+                            </div>
+                            <div class="login-userVerificationContent clear">
+                                <div class="fl"><span class="iconfont">&#xe606;</span></div>
+                                <div class="login-userVerificationInputDiv fl"><input type = "text" id = "verificationInput" value="" placeholder="验证码" maxlength="4"></div>
+                                <div class="login-userVerificationDiv fl"><input type = "button" id="verification"></div>
+                            </div>
+                            <div class="login-other clear">
+                                <div class="fl">
+                                    <input type="checkbox" name="rebName" id="rebName">
+                                    <span>记住我</span>
+                                </div>
+                                <div class="login-forgetPassword fr">忘记密码?</div>
+                            </div>
+                            <div class="login-signIn">
+                                <div class="login-signInBtn">进 入 系 统</div>
+                            </div>
+                            <p class="promptWordsName"></p>
+                            <p class="promptWordsPassword"></p>
+                            <p class="promptWordsVerification"></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">找回密码：</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="login-phoneForm">
+                        <div class="form-group">
+                            <label for="messageText" class="control-label login-phoneLabel">请输入手机号</label>
+                            <div class="clear">
+                                <div class="login-phoneVerification fl">
+                                    <input class="login-phoneVerificationInput" id="messageText" maxlength="11"></input>
+                                </div>
+                                <div class="login-phoneVerificationContent fl">请获取验证码</div>
+                            </div>
+                            <div class="login-prompt"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputMessageText" class="control-label login-phoneLabel">请输入验证码</label>
+                            <div class="login-phoneVerification2">
+                                <input class="login-getVerificationInput" id="inputMessageText" maxlength="6"></input>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success">点击进入</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tishi">
+        <p>账号：111 密码：123456 权限：老师</p>
+        <p>账号：222 密码：123456 权限：园长</p>
+        <p>账号：333 密码：123456 权限：管理员</p>
+    </div>
+    <script src="../lib/bootstrap-3.3.5-dist/js/jquery-1.11.3.js"></script>
+    <script src="../lib/bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+    <script src="../js/login.js"></script>
+</body>
+</html>

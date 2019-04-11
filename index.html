@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/limit.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/myClassData.js"></script>
+    <script src="js/noticeData.js"></script>
+    <script src="js/bumendata.js"></script>
+    <script>
+        sessionStorage.setItem("userTeacher",JSON.stringify(teachers));
+        sessionStorage.setItem("userStudents",JSON.stringify(students));
+        sessionStorage.setItem('loginUser', JSON.stringify(pre));
+        sessionStorage.setItem('user', JSON.stringify(myclass));
+        sessionStorage.setItem('noticeUser', JSON.stringify(myNotice));
+        sessionStorage.setItem('bumens', JSON.stringify(bumens));
+        location='pages/login.html';   
+    </script>
+</body>
+</html>

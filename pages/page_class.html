@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="../lib/bootstrap-3.3.5-dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../css/page_class.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="input-group taskBlock">
+                    <i class="glyphicon glyphicon-search"></i>
+                    <input type="text" class="form-control inputPhoto inputBox" placeholder="搜索" aria-describedby="basic-addon1">
+                </div>
+                <div class="taskBlocks clearfix">
+                    <button class="export" type="button" class="btn btn-primary btn-lg" >导出</button>
+                    <button class="add" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">添加</button>
+                </div>
+                <table id="classtable" class="table table-hover table-bordered table-striped">
+                    <thead>
+                        <tr class="info"></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <div id="page">
+                    <ul class="pagination myul">
+                        <li>
+                            <span>全选</span>
+                        </li>
+                        <li id="myli">
+                            <span>删除</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 添加Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">添加班级</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <span>班级编号：</span>
+                            <input type="text" id="classNo">
+                            <span>班级名称：</span>
+                            <input type="text" id="className"><br><br>
+                            <span>开班日期：</span>
+                            <input type="text" id="classDate">
+                            <span>班级人数：</span>
+                            <input type="text" id="classNum"><br><br>
+                            <span>上课老师：</span>
+                            <select name="">
+                                <option value="">请选择</option>
+                            </select>
+                            <span class="kongge"></span>
+                            <span>生活老师：</span>
+                            <select name="">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-default cancel" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn-primary save">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 查看Modal -->
+    <div class="modal fade" id="myLookModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">查看班级</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <span class="up">升班</span>
+                            <span class="graduate">毕业</span><br><br>
+                            <span>班级人数：</span>
+                            <input type="text" class="Num"disabled="disabled">
+                            <span>上课老师：</span>
+                            <input type="text" class="lessonTeacher"disabled="disabled">
+                            <span>生活老师：</span>
+                            <input type="text" class="lifeTeacher"disabled="disabled">
+                            <table class="looktable table table-hover table-bordered table-striped">
+                                <thead></thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 修改Modal -->
+    <div class="modal fade" id="myalterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">修改班级</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <span>班级编号：</span>
+                            <input type="text" class="No1" disabled="disabled"><!--禁止修改input-->
+                            <span>班级名称：</span>
+                            <input type="text" class="Name1"><br><br>
+                            <span>开班日期：</span>
+                            <input type="text" class="Date1">
+                            <span>班级人数：</span>
+                            <input type="text" class="Num1"><br><br>
+                            <span>上课老师：</span>
+                            <select name="" class="lessonTeacher1">
+                                <option value="">请选择</option>
+                            </select>
+                            <span class="kongge"></span>
+                            <span>生活老师：</span>
+                            <select name="" class="lifeTeacher1">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-default cancel" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn-primary save" data-dismiss="modal">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Small modal -->
+    <div class="modal fade bs-example-modal-sm" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="smallModalText"></div>
+          </div>
+        </div>
+      </div>
+<script src="../lib/bootstrap-3.3.5-dist/js/jquery-1.11.3.js"></script>
+<script src="../lib/bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+<script src="../lib/bootstrap-3.3.5-dist/js/jquery.table2excel.js"></script>
+<script src="../js/myclasspage.js"></script>
+</body>
+</html>

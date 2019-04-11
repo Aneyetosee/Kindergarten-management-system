@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../lib/bootstrap-3.3.5-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/student.css" />
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row  stuhead">
+        <div class="col-lg-10 col-md-10">
+                    <span>查询方式：<strong>班级查询</strong>
+                        <label>
+                        <select class="form-control" id="mystuclass">
+                            <option value="0">全部</option>
+                            <option value="1">小班</option>
+                            <option value="2">中班</option>
+                            <option value="3">大班</option>
+                        </select>
+                        </label>
+                    </span>
+            <span><strong>直接查询</strong></span>
+            <input type="text" placeholder="请输入姓名/学号...." class="changeinput"  >
+        </div>
+        <div class="col-lg-2 col-md-2 ">
+            <button type="button" class=" btn btn-primary btn-md" data-toggle="modal" data-target="#AddModa">
+                <span class=""></span>新增学生
+            </button>
+        </div>
+    </div>
+    <div class="row mySection">
+        <div class="col-lg-12 col-md-12 my_table">
+            <table class="table table-hover table-bordered table-striped" id="my_table" >
+                <thead >
+                <tr class="info">
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-2 col-md-3 col-lg-offset-10 col-md-offset-9">
+            <ul class="pagination myul">
+                <li id="myli1">
+                    <a href="#" >
+                        <span>&laquo;</span>
+                    </a>
+                </li>
+                <li id="myli2">
+                    <a href="#" >
+                        <span>&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--添加学生-->
+<div class="modal fade bs-example-modal-lg" id="AddModa" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="addClose">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">添加学生</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-inline" >
+                    <div class="row text-left">
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px; ">
+                            <div class="form-group">
+                                <label for="studentName"  class="text-right" style="min-width: 100px">姓名：</label>
+                                <input type="text" class="form-control" id="studentName">
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label  class="text-right" style="min-width: 100px">性别：</label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="Sex" id="Sex1" value="男"> 男
+                                </label>
+                                <label class="radio-inline mySex1">
+                                    <input type="radio" name="Sex" id="Sex2" value="女"> 女
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="StuNum" class="text-right" style="min-width: 100px">学号：</label>
+                                <input type="text" class="form-control" id="StuNum">
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="StuNum" class="text-right" style="min-width: 100px">年龄：</label>
+                                <input type="text" class="form-control" id="StuAge">
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group" id="Birthdate">
+                                <label class="text-right" style="min-width: 100px">生日：</label>
+                                <select class="form-control Year">
+                                    <option>年</option>
+                                </select>
+                                <select class="form-control Month">
+                                    <option>月</option>
+                                </select>
+                                <select class="form-control Day">
+                                    <option>日</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="HomeAdd" class="text-right" style="min-width: 100px">班级：</label>
+                                <select class="form-control" id="studentClass">
+                                    <option>班级</option>
+                                    <option>小班</option>
+                                    <option>中班</option>
+                                    <option>大班</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="HomeAdd" class="text-right" style="min-width: 100px">家庭住址：</label>
+                                <select class="form-control City">
+                                    <option>成都</option>
+                                </select>
+                                <select class="form-control District">
+                                    <option>金牛</option>
+                                    <option>武侯</option>
+                                    <option>青羊</option>
+                                    <option>高新</option>
+                                </select>
+                                <input type="text" class="form-control" id="HomeAdd">
+
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="PatPhoneNum" class="text-right" style="min-width: 100px">家长姓名：</label>
+                                <input type="email" class="form-control" id="PatName">
+
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="PatPhoneNum" class="text-right" style="min-width: 100px">家长电话：</label>
+                                <input type="email" class="form-control" id="PatPhoneNum">
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="myParentEmial" class="text-right" style="min-width: 100px">家长邮箱：</label>
+                                <input type="email" class="form-control" id="myParentEmial">
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="myParentEmial" class="text-right" style="min-width: 100px">关系：</label>
+                                <input type="email" class="form-control" id="myRelation">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success"  id="AddQd">确定</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close" id="AddQx">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--修改学生-->
+<div class="modal fade bs-example-modal-lg" id="changeModa" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="changemyModal">添加学生</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-inline" >
+                    <div class="row text-left">
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px; ">
+                            <div class="form-group">
+                                <label for="studentName"  class="text-right" style="min-width: 100px">姓名：</label>
+                                <input type="text" class="form-control" id="changeStudentName">
+                                <span class="Lspan">请填写姓名</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label  class="text-right" style="min-width: 100px">性别：</label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="changeSex" id="changeSex1" value="男"> 男
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="changeSex" id="changeSex2" value="女"> 女
+                                </label>
+                                <span class="Lspan">请选择性别</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="StuNum" class="text-right" style="min-width: 100px">学号：</label>
+                                <input type="text" class="form-control" id="changeStuNum">
+                                <span class="Lspan">请填写学号</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="StuNum" class="text-right" style="min-width: 100px">年龄：</label>
+                                <input type="text" class="form-control" id="changeStuAge">
+                                <span class="Lspan">请填写年龄</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2 " style="margin-top: 25px">
+                            <div class="form-group" id="changeBirthdate">
+                                <label class="text-right" style="min-width: 100px">生日：</label>
+                                <select class="form-control Year">
+                                    <option>年</option>
+                                </select>
+                                <select class="form-control Month">
+                                    <option>月</option>
+                                </select>
+                                <select class="form-control Day">
+                                    <option>日</option>
+                                </select>
+                                <span class="Lspan">请填写生日</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="HomeAdd" class="text-right" style="min-width: 100px">班级：</label>
+                                <select class="form-control" id="changestudentClass">
+                                    <option>小班</option>
+                                    <option>中班</option>
+                                    <option>大班</option>
+                                </select>
+                                <span class="Lspan">请填写班级</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="HomeAdd" class="text-right" style="min-width: 100px">家庭住址：</label>
+                                <select class="form-control City">
+                                    <option>成都</option>
+                                </select>
+                                <select class="form-control District">
+                                    <option>金牛</option>
+                                    <option>武侯</option>
+                                    <option>青羊</option>
+                                    <option>高新</option>
+                                </select>
+                                <input type="text" class="form-control" id="changeHomeAdd">
+                                <span class="Lspan">请填写家庭住址</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="PatPhoneNum" class="text-right" style="min-width: 100px">家长姓名：</label>
+                                <input type="email" class="form-control" id="changePatName">
+                                <span class="Lspan">请填写家长姓名</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="PatPhoneNum" class="text-right" style="min-width: 100px">家长电话：</label>
+                                <input type="email" class="form-control" id="changePatPhoneNum">
+                                <span class="Lspan">请填写家长联系电话</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="myParentEmial" class="text-right" style="min-width: 100px">家长邮箱：</label>
+                                <input type="email" class="form-control" id="changemyParentEmial">
+                                <span class="Lspan">请填写家长邮箱</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="myParentEmial" class="text-right" style="min-width: 100px">关系：</label>
+                                <input type="email" class="form-control" id="changemyRelation">
+                                <span class="Lspan">请输入与学生关系</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal" id="changeAddQd">确定</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close" id="changeAddQx">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--查看学生-->
+<div class="modal fade bs-example-modal-lg" id="viewModa" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="viewmyModal">添加学生</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-inline" >
+                    <div class="row text-left">
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px; ">
+                            <div class="form-group">
+                                <label for="studentName"  class="text-right" style="min-width: 100px">姓名：</label>
+                                <input type="text" class="form-control" id="viewStudentName">
+                                <span class="Lspan">请填写姓名</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label  class="text-right" style="min-width: 100px">性别：</label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="viewSex" id="viewSex1" value="男"> 男
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="viewSex" id="viewSex2" value="女"> 女
+                                </label>
+                                <span class="Lspan">请选择性别</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="StuNum" class="text-right" style="min-width: 100px">学号：</label>
+                                <input type="text" class="form-control" id="viewStuNum">
+                                <span class="Lspan">请填写学号</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="StuNum" class="text-right" style="min-width: 100px">年龄：</label>
+                                <input type="text" class="form-control" id="viewStuAge">
+                                <span class="Lspan">请填写年龄</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group" id="viewBirthdate">
+                                <label class="text-right" style="min-width: 100px">生日：</label>
+                                <select class="form-control Year">
+                                    <option>年</option>
+                                </select>
+                                <select class="form-control Month">
+                                    <option>月</option>
+                                </select>
+                                <select class="form-control Day">
+                                    <option>日</option>
+                                </select>
+                                <span class="Lspan">请填写生日</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="HomeAdd" class="text-right" style="min-width: 100px">班级：</label>
+                                <select class="form-control" id="viewstudentClass">
+                                    <option>小班</option>
+                                    <option>中班</option>
+                                    <option>大班</option>
+                                </select>
+                                <span class="Lspan">请填写班级</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="HomeAdd" class="text-right" style="min-width: 100px">家庭住址：</label>
+                                <select class="form-control City">
+                                    <option>成都</option>
+                                </select>
+                                <select class="form-control District">
+                                    <option>金牛</option>
+                                    <option>武侯</option>
+                                    <option>青羊</option>
+                                    <option>高新</option>
+                                </select>
+                                <input type="text" class="form-control" id="viewHomeAdd">
+                                <span class="Lspan">请填写家庭住址</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="PatPhoneNum" class="text-right" style="min-width: 100px">家长姓名：</label>
+                                <input type="email" class="form-control" id="viewPatName">
+                                <span class="Lspan">请填写家长姓名</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="PatPhoneNum" class="text-right" style="min-width: 100px">家长电话：</label>
+                                <input type="email" class="form-control" id="viewPatPhoneNum">
+                                <span class="Lspan">请填写家长联系电话</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="myParentEmial" class="text-right" style="min-width: 100px">家长邮箱：</label>
+                                <input type="email" class="form-control" id="viewmyParentEmial">
+                                <span class="Lspan">请填写家长邮箱</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2" style="margin-top: 25px">
+                            <div class="form-group">
+                                <label for="myParentEmial" class="text-right" style="min-width: 100px">关系：</label>
+                                <input type="email" class="form-control" id="viewmyRelation">
+                                <span class="Lspan">请输入与学生关系</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal" id="viewAddQd">确定</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close" id="viewAddQx">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../lib/bootstrap-3.3.5-dist/js/jquery-1.11.3.js"></script>
+<script src="../lib/bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+<script src="../js/data.js"></script>
+<script src="../js/pageStudent.js"></script>
+</body>
+</html>

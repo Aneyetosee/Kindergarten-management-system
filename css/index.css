@@ -1,0 +1,335 @@
+section{
+    width:100%;
+    min-width: 800px;
+    margin:0 auto;
+    overflow: hidden;
+    background: url(../images/1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.index-leftNav{
+    width:15%;
+    height:669px;
+    background-color: rgba(52, 206, 211, 0.5);
+    overflow: hidden;
+    transition: all .3s linear;
+    /* background: url(../images/leftNav-bg.jpg)
+    no-repeat;
+    background-size: cover; */
+}
+.index-userAbout{
+    width:100%;
+    text-align: center;
+    padding-top: 50px;
+}
+.index-userChoose{
+    height:110px;
+    overflow: hidden;
+}
+.index-userAbout>div:first-child{
+    width:56.666666px;
+    height:56.666666px;
+    margin:0 auto;
+    cursor: pointer;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.index-image{
+    width:100%;
+    height:100%;
+    vertical-align:middle;
+}
+.index-userName{
+    margin:10px 0;
+    cursor: pointer;
+    color: #fff;
+}
+.index-uesrMenu{
+    width:80%;
+    height:0;
+    background-color: rgba(9, 153, 141, 0.5);
+    border-radius: 7px;
+    margin:10px auto;
+    overflow: hidden;
+    transition: all .3s linear;
+}
+.index-uesrMenu.on{
+    height:60px;
+}
+.index-uesrMenu>li{
+    display: block;
+    width:100%;
+    height:30px;
+    line-height:30px;
+    text-align: center;
+    color:#eee;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(9, 153, 122, 0.5);
+}
+.index-uesrMenu>li:hover{
+    background-color:#0BD6D8;
+}
+.index-lefeNavContent{
+    width:100%;
+    margin:0 auto;
+}
+.index-lefeNavAll{
+    margin:0 3%;
+}
+.index-lefeNavTitle,
+.index-lefeNavfirstContent{
+    width:100%;
+    height:40px;
+    line-height:40px;
+    cursor: pointer;
+    padding:0 3%;
+    transition: all .1s linear;
+}
+.index-lefeNavTitle{
+    background-color: rgba(21, 211, 195, 0.5);
+}
+.index-lefeNavTitle.on{
+    background-color: rgba(32, 197, 219, 0.7);
+    border-radius: 3px;
+}
+.index-lefeNavTitle.on>span{
+    color:rgb(88, 88, 88);
+}
+.index-lefeNavfirstContent{
+    border-left: 3px solid #CDCECC;
+    background-color: rgba(23, 178, 199, 0.5);
+}
+.index-lefeNavfirstContent>span{
+    color:rgb(255, 255, 255);
+}
+.index-lefeNavTitle>span{
+    color:rgb(255, 255, 255);
+}
+.index-lefeNavTitle>span:first-child,
+.index-lefeNavfirstContent>span:first-child{
+    font-size: 20px;
+    padding-right:15%;
+}
+.index-lefeNavfirstContent>span:first-child{
+    padding-left:8%;
+}
+
+.index-lefeNavTitle>span:nth-child(2){
+    padding-right:24%;
+}
+.index-lefeNavfirstContent:hover>span,
+.index-lefeNavfirstContent.on>span,
+.index-lefeNavTitle:hover>span{
+    color: rgb(116, 116, 116);
+}
+.index-lefeNavfirstContent.on,
+.index-lefeNavfirstContent:hover{
+    border-left: 3px solid rgba(29, 173, 192, 0.7);
+}
+.index-lefeNavfirstDropDown{
+    height:0;
+    overflow: hidden;
+    transition: all .3s linear;
+}
+
+.index-rightNav{
+    width:85%;
+    padding-left:3px;
+    padding-right:0;
+    transition: all .3s linear;
+}
+
+.index-rightNavContent{
+    width:100%;
+    height:40px;
+    background-color: rgba(52, 206, 211, 0.5);
+}
+.index-rightNavLeftAbout{
+    width:4%;
+    height:40px;
+    line-height: 40px;
+    padding:0 .5%;
+}
+.index-rightNavLeftAboutMenu{
+    height:40px;
+    text-align: center;
+    cursor: pointer;
+}
+.index-rightNavLeftAboutMenu>span{
+    font-size: 28px;
+    color: #fff;
+}
+.index-rightNavLeftText{
+    width:80%;
+    height:40px;
+    line-height:40px;
+    padding:0 10%;
+    text-align: center;
+}
+.index-rightNavLeftText>span{
+    font-size: 20px;
+    color:rgba(255, 255, 255, 0.815);
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-style:italic;
+    font-family:Arial; 
+}
+.index-rightNavRightAbout{
+    width:16%;
+}
+.index-emailQuick{
+    width:14%;
+    height:40px;
+    line-height: 40px;
+    text-align: center;
+    position: relative;
+    margin:0 18%;
+    font-size: 24px;
+    color:rgba(255, 255, 255, 0.815);
+    cursor: pointer;
+}
+.index-emailQuick:hover{
+    color:#fff;
+}
+.index-emailQuickNum{
+    display: block;
+    width:15px;
+    height:15px;
+    line-height: 15px;
+    text-align: center;
+    border-radius: 50%;
+    background-color:red;
+    font-size: 12px;
+    color: #fff;
+    position: absolute;
+    top:5px;
+    right:-5px;
+}
+.index-rightNavRightTheme{
+    width:50%;
+    height:40px;
+    line-height: 40px;
+    text-align: center;
+    padding:0 20%;
+    position: relative;
+}
+.index-rightNavRightClick{
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.815);
+    font-size: 24px;
+}
+.index-rightNavRightClick:hover{
+    color:#fff;
+}
+.index-rightNavRightThemeContent{
+    display: none;
+    width: 92px;
+    height:30px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+    position: absolute;
+    bottom:-10px;
+    left:0px;
+}
+.index-rightNavRightThemeText{
+    margin-left:32px;
+    line-height:30px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 900;
+}
+
+.index-instructions{
+    display: inline-block;
+    transform: rotateZ(0deg);
+    transition: all .3s linear;
+}
+.index-instructions.on{
+    transform: rotateZ(180deg);
+}
+.index-otherInstructions{
+    display: inline-block;
+    transform: rotateZ(-90deg);
+    transition: all .3s linear;
+}
+.index-otherInstructions.on{
+    transform: rotateZ(0deg);
+}
+
+.index-breadNav{
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.index-breadNav>li{
+    font-size: 22px;
+    font-weight: 600;
+}
+/* .index-breadNavButton{
+    color: #337ab7;
+    cursor: pointer;
+}
+.index-breadNavButton:hover{
+    color: #23527c;
+} */
+
+.index-rightIframe{
+    width:85%;
+    padding-left:3px;
+    padding-right:0;
+    transition: all .3s linear;
+}
+.myiframe{
+    width:100%;
+    height:577px;
+    margin:0;
+}
+
+.addDiv{
+    position: relative;
+}
+.index-prompt1,
+.index-prompt2,
+.index-prompt3,
+.index-imgPrompt{
+    color:red;
+    position: absolute;
+}
+
+.index-confirmOut{
+    margin-left:80px;
+}
+button,.myul>li>span,.alter,.del,.look{
+    width: 60px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    margin-right: 5px;
+    line-height: 30px;
+    cursor: pointer;
+}
+.del:hover,
+.cancel:hover{
+    background-color: rgba(201, 48, 44, 0.6);
+    color: white;
+}
+.del,.cancel{
+    background-color: #C9302C;
+    display: inline-block;
+    color: white;
+}
+.alter,.saveAdd{
+    background-color: #31B0D5;
+    display: inline-block;
+}
+
+.yulan{
+    width:56.666666px;
+    height:56.666666px;
+    opacity: 0;
+}
+.yulan>img{
+    width:100%;
+    height:100%;
+}

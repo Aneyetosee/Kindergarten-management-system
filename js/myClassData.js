@@ -1,0 +1,26 @@
+var myclass=[
+    {
+        myclassId:1,//班级编号
+        myclassName:"小班",//班级名称
+        myclassDate:"2018-9-1",//开班日期
+        myclassNum:4,//班级人数
+        myclassTeacher1:"张三",//上课老师
+        myclassTeacher2:"张五",//生活老师
+    },
+    {
+        myclassId:2,//班级编号
+        myclassName:"中班",//班级名称
+        myclassDate:"2017-9-1",//开班日期
+        myclassNum:4,//班级人数
+        myclassTeacher1:"李二",//上课老师
+        myclassTeacher2:"张六",//生活老师
+    },
+    {
+        myclassId:3,//班级编号
+        myclassName:"大班",//班级名称
+        myclassDate:"2016-9-1",//开班日期
+        myclassNum:4,//班级人数
+        myclassTeacher1:"赵一",//上课老师
+        myclassTeacher2:"张七",//生活老师
+    }
+];

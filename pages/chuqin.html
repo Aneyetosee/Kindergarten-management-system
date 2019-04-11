@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/echarts-cq/echarts.min.js"></script>
+    <link rel="stylesheet" href="../lib/bootstrap-3.3.5-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/cq.css">
+  <!--  <script src="js/customed.js"></script> -->
+    
+</head>
+<body>
+    <div id="div" class="container">
+
+        <!-- 请假统计标题 -->
+        <div class="row">
+            <h3 class="kq-h2 col-lg-3">请假统计</h3>
+        </div>
+
+        <!-- 班级搜索行 -->
+        <div class="row">
+            <div class="input-group kq-div3 col-lg-8">
+                <span class="input-group-addon" id="basic-addon1" >班级:</span>
+                
+                <!-- 返回按钮 -->
+                <button type="button" class="btn btn-danger" id="kq-btn2">返回</button>
+
+                <!-- 搜素框 -->
+                <input type="text" class="form-control" placeholder="请输入班级" aria-describedby="basic-addon1" id="kq-find">
+
+                <!-- 查询按钮 -->
+                <button type="button" class="btn btn-primary" id="kq-btn3" style="background: #5bc0de;border-color: #46b8da">查询</button>
+
+                
+            </div>
+            <!-- 请假按钮 邮件发送按钮 -->
+            <div class="row cq-btn8"> 
+                <!-- 请假录入 -->
+                <button type="button" class="btn btn-info kq-bt1 col-lg-1 col-md-offset-8" data-toggle="modal" data-target="#myModal">请假录入</button>
+                 <!-- 请假录入模态框 -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel ">请假录入</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="input-group input-group-sm kq-div5">
+                                    <span class="input-group-addon" id="sizing-addon2">学生学号：</span>
+                                    <input type="text" class="form-control" placeholder="请输入学号" aria-describedby="sizing-addon2" name="" id="studentId">
+                                    </div>
+             
+                                <div class="input-group input-group-sm kq-div6">
+                                    <span class="input-group-addon" id="sizing-addon2">学生姓名：</span>
+                                     <input type="text" class="form-control" placeholder="请输入名字" aria-describedby="sizing-addon2" name="" id="studentName">
+                                </div>
+             
+                                <div class="input-group input-group-sm kq-div6">
+                                    <span class="input-group-addon" id="sizing-addon3">学生班级：</span>
+                                    <input type="text" class="form-control" placeholder="请输入班级" aria-describedby="sizing-addon3" name="" id="studentsClass">
+                                </div>
+                                 
+                                <div class="input-group input-group-sm kq-div6">
+                                    <span class="input-group-addon" id="sizing-addon3">入园时间：</span>
+                                    <input type="text" class="form-control" placeholder="请输入入园时间" aria-describedby="sizing-addon3" name="" id="arrivalTime">
+                                </div>
+         
+                                <div class="input-group input-group-sm kq-div6">
+                                    <span class="input-group-addon" id="sizing-addon3">出园时间：</span>
+                                    <input type="text" class="form-control" placeholder="请输入出园时间" aria-describedby="sizing-addon3" name="" id="leaveTime">
+                                </div>
+         
+                                <div class="input-group input-group-sm kq-div6">
+                                    <span class="input-group-addon" id="sizing-addon3">是否出勤：</span>
+                                    <input type="text" class="form-control" placeholder="请输入是否出勤" aria-describedby="sizing-addon3" name="" id="attendance">
+                                </div>
+                            </div> 
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" id="btn1">录入</button>
+                            </div>
+                        </div>
+                     </div> 
+                </div>
+                <!-- 邮件发送按钮 -->
+                <button type="button" class="btn btn-info kq-bt4 col-lg-1 " data-toggle="modal" data-target="#myModa2">发送邮件</button>
+                 <!-- 邮件发送模态框 -->
+                <div class="modal fade" id="myModa2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel ">邮件发送</h4>
+                            </div>
+                        <div class="modal-body">
+                            <p>是否发送邮件</p>
+                        </div> 
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-primary" id="btn2" data-dismiss="modal">确认</button>
+                        </div>
+                    </div>
+                </div> 
+                </div>
+                <!-- 数据导出按钮 -->
+                <button type="button" class="btn btn-info kq-bt5 col-lg-1 " data-toggle="modal" >数据导出</button>
+            </div>
+        </div>
+    
+        <!-- 展示表格 -->
+        <div class="row">
+            <div class="col-lg-12">
+                <table id="mytable" class="table table-hover table-bordered table-striped">
+                    <thead>
+                        <tr class="info"></tr>
+                    </thead>
+                    <tbody class="kq-ggg"></tbody>
+                </table>
+                <div class="pageNum"></div>
+            </div>
+            <!-- 分页 -->
+            <nav aria-label="Page navigation" class="btcol-lg-2 col-md-offset-9">
+                <ul class="pagination myul">
+                    <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                    </li>
+                    
+                    <li id="myli">
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- 统计表 -->
+    <!-- <div class="row">
+        <div id="main" class="col-lg-12 col-xs-12"></div>
+    </div> -->
+
+    <!-- Small modal -->
+    <div class="modal fade bs-example-modal-sm" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="smallModalText"></div>
+          </div>
+        </div>
+      </div>
+    <script src="../lib/bootstrap-3.3.5-dist/js/jquery-1.11.3.js"></script>
+    <script src="../lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../lib/jquery-table2excel-master/dist/jquery.table2excel.min.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/limit.js"></script>
+    <script src="../js/cq.js"></script>
+</body>
+</html>

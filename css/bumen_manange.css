@@ -1,0 +1,74 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Microsoft YaHei UI";
+    font-size: 14px;
+}
+#department_mytable{
+    text-align: center;
+}
+#nav_fenye{
+    float: right;
+}
+button,.myEdit,.myDelete,.myLook{
+    width: 60px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    margin-right: 5px;
+    line-height: 30px;
+    cursor: pointer;
+}
+.add{
+    float: right;
+    margin-bottom: 5px;
+    background-color: #449D44;
+    font-size: 14px;
+    padding-top: 5px;
+
+}
+.myEdit,.save{
+    background-color: #31B0D5;
+    display: inline-block;
+}
+.myDelete,.cancel{
+    background-color: #C9302C;
+    display: inline-block;
+    color: white;
+}
+.myLook{
+    background-color: #449D44;
+    display: inline-block;
+}
+
+
+.myEdit:hover,
+.save:hover{
+    background-color: rgba(49, 176, 213, 0.6);
+    color: white;
+}
+.add:hover,
+.myLook:hover{
+    background-color: rgba(68, 157, 68, 0.6);
+    color: white;
+}
+.taskBlock{
+    display: inline-block;
+}
+.myInput{
+    text-indent: 1em;
+    width: 300px;
+    height: 34px;
+}
+.taskBlock>input{
+    outline: none;
+}
+.topweizhi{
+    padding-top:30px;
+}
+.smallModalText{
+    height:50px;
+    line-height: 50px;
+    text-align: center;
+}

@@ -1,0 +1,129 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Microsoft YaHei UI";
+    font-size: 14px;
+}
+#classtable{
+    text-align: center;
+}
+button,.myul>li>span,.alter,.del,.look,.graduate,.up{
+    width: 60px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    margin-right: 5px;
+    line-height: 30px;
+    cursor: pointer;
+    text-align: center;
+}
+.add{
+    float: right;
+    background-color: #449D44;
+}
+.alter,.save,.export,.graduate{
+    background-color: #31B0D5;
+    display: inline-block;
+}
+.del,.cancel{
+    background-color: #C9302C;
+    display: inline-block;
+    color: white;
+}
+.look,.up{
+    background-color: #449D44;
+    display: inline-block;
+}
+
+.myul>li{
+    display: inline-block;
+}
+.myul{
+    font-size: 0px;
+}
+.myul>li:nth-of-type(1)>span{
+    background-color: #31B0D5;
+}
+.myul>li>span{
+    padding: 0px;
+    background-color: #C9302C;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+}
+.myul>li:nth-of-type(1)>span:hover,
+.alter:hover,
+.save:hover,
+.export:hover,
+.graduate:hover{
+    background-color: rgba(49, 176, 213, 0.6);
+    color: white;
+}
+.myul>li>span:hover,
+.del:hover,
+.cancel:hover{
+    background-color: rgba(201, 48, 44, 0.6);
+    color: white;
+}
+.add:hover,
+.look:hover,
+.up:hover{
+    background-color: rgba(68, 157, 68, 0.6);
+    color: white;
+}
+.kongge{
+    width: 18%;
+    display: inline-block;
+}
+.taskBlock{
+    display: inline-block;
+    padding-top:30px;
+}
+input{
+    text-indent: 1em;
+}
+.taskBlock input{
+    height: 30px;
+    outline: none;
+    text-indent: 2em;
+}
+.taskBlocks{
+    display: inline-block;
+    padding-left:70%;
+}
+.export{
+    float: right;
+}
+.looktable{
+    margin-top: 20px;
+    text-align: center;
+}
+.upBox{
+    width: 30%;
+    height: 200px;
+    position: absolute;
+    top: 50px;
+    left: 35%;
+    z-index: 999;
+    border-radius: 8px;
+    background-color: white;
+    -moz-box-shadow: 2px 2px 10px #909090;
+    -webkit-box-shadow: 2px 2px 10px #909090;
+    box-shadow:2px 2px 10px #909090;
+    padding-top: 30px;
+    padding-left: 60px;
+}
+.glyphicon-search{
+    position: absolute;
+    top: 35px;
+    left: 10px;
+    font-size: 18px;
+    z-index: 111;
+    color: rgba(0,0,0,0.5);
+}
+.smallModalText{
+    height:50px;
+    line-height: 50px;
+    text-align: center;
+}

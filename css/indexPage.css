@@ -1,0 +1,211 @@
+body{
+    background-color: transparent;
+}
+section{
+    width:100%;
+    min-width: 800px;
+    margin:0 auto;
+    overflow: hidden;
+}
+.boxList{
+    padding-top:80px;
+    padding-bottom: 100px;
+    position: relative;
+        /* background: url(../images/index-bg.jpg)
+        no-repeat;
+        background-size: 100% 100%; */
+}
+.boxshaw{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.weather{
+    height:200px;
+}
+.weatherContent{
+    background: rgba(255, 255, 255, 0.5);
+    margin:0 10px;
+    padding:0 0 45px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px 10px 0 0;
+    box-shadow:  0 3px 7px rgba(0,0,0,0.3);
+    position: relative;
+}
+.weatherTitle{
+    width:30%;
+    height:20px;
+    background-color:#32B9CD;
+    text-align: center;
+    color:#fff;
+    line-height: 20px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    position: absolute;
+    top:-10px;
+    left:10%;
+    /* transform: rotate(-10deg); */
+}
+.cityName{
+    margin-top:20px;
+    padding:0 5%;
+    font-size: 40px;
+    color:rgb(105, 105, 105);
+}
+.temp{
+    margin-left:14%;
+    margin-top:26px;
+    font-size: 20px;
+    color:rgb(88, 88, 88);
+}
+.thisWeather{
+    padding-left:62%;
+    color:rgb(88, 88, 88);
+}
+
+.wind{
+    margin-top:30px;
+}
+.wind1{
+    margin-left:13%;
+    color:rgb(88, 88, 88);
+}
+.wind2{
+    margin-right:11%;
+    color:rgb(88, 88, 88);
+}
+.date-timer{
+    background: rgba(255, 255, 255, 0.5);
+    margin: 30px 10px 0;
+    padding: 0 0 45px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.3)
+}
+.year-mouth-day{
+    color:rgb(88, 88, 88);
+    font-weight: 900;
+    font-size: 22px;
+    padding-top:30px;
+    padding-left:7%;
+}
+.hour-mintes-seconds{
+    color:rgb(88, 88, 88);
+    font-size: 16px;
+    font-weight: 900;
+    padding-top:23px;
+    padding-left:60%;
+}
+#schedule-box{
+    width: 320px;
+    margin: 0 auto;
+    padding: 35px 20px;
+    font-size: 13px;
+}
+.schedule-hd{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+.today{
+    flex: 1;
+    text-align: center;
+}
+.ul-box{
+    overflow: hidden;
+}
+.ul-box > li{
+    float: left;
+    width: 14.28%;
+    text-align: center;
+    padding: 5px 0;
+}
+.other-month{
+    color: #999999;
+}
+.current-month{
+    color: #333333;
+}
+.today-style{
+    border-radius: 50%;
+    background: #58d321;
+}
+.arrow{
+    cursor: pointer;
+}
+.dayStyle{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    cursor: pointer;
+}
+.current-month > .dayStyle:hover{
+    background: #00BDFF;
+    color: #ffffff;
+}
+.today-flag{
+    background: #00C2B1;
+    color: #fff;
+}
+.boxshaw{
+    box-shadow: 2px 2px 15px 2px #e3e3e3;
+}
+.selected-style {
+    background: #00BDFF;
+    color: #ffffff;
+}
+#h3Ele{
+    display: none;
+    text-align: center;
+    padding: 10px;
+}
+
+.announcement{
+    height:390px;
+    /* background: url("../images/公告背景.jpg") no-repeat;
+    background-size: cover; */
+    position: relative;
+    cursor: pointer;
+
+}
+.announcement-bg{
+    width:100%;
+    height:390px;
+    position: absolute;
+    top:0;
+    left:0;
+    opacity: .5;
+    z-index: 2;
+}
+.announcement-bg>img{
+    width:100%;
+    height:100%;
+}
+.announcement>h3{
+    text-align: center;
+    color: rgb(90, 174, 255);
+    margin-top:15px;
+    position: relative;
+    z-index: 3;
+}
+.announcement span{
+    margin-left: 6%;
+}
+.announcement p{
+    display: inline-block;
+}
+.announcement-content{
+    margin-left:5%;
+    margin-top: 60px;
+    height: 280px;
+    overflow: auto;
+    position: relative;
+    z-index: 3;
+}
+.smallFont{
+    font-size: 12px;
+    margin-left: 55%;
+}

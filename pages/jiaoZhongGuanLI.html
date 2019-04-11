@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="../lib/bootstrap-3.3.5-dist/css/bootstrap.css">
+    <style>
+    .tianjia{
+        margin-top: 25px;
+    }
+    .myInput{
+        margin-left: 100px;
+    }
+    .myInput input{
+        margin-left: 20px;
+    }
+    .myInput select{
+        margin-left: 20px;
+        width: 50px;
+    }
+        span{
+            cursor: pointer;
+        }
+
+    .teach_div{
+        /*margin: 40px 125px;*/
+        padding: 40px 20px;
+    }
+     /* .teach_alter{
+        padding-top: 0px;
+         padding-bottom: 0px;
+         border: 0px;
+     } */
+        #teach_table td{
+            text-align: center;
+        }
+        .teach_shanchu{
+          /*  padding-top: 0px;
+            padding-bottom: 0px;
+            border: 0px;*/
+            background-color: #cc0000;
+        }
+    .teach_shanchu:hover{
+        background-color: #8d0000;
+    }
+        .daochu{
+            margin-top: 25px;
+        }
+        #teach_table tbody tr td{
+            vertical-align: middle;
+        }
+        #teacher_Bumenl,#teacher_Sexl,#teacher_Bumen,#teacher_Sex{
+            width: 174px;
+        }
+        #teach_dao{
+            padding-top: 18px;
+        }
+    .smallModalText{
+        height:50px;
+        line-height: 50px;
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+
+    <!--<div class="row">
+        <div class="col-lg-2 col-xs-4 ">
+            <h1>教职工管理</h1>
+        </div>
+
+    </div>-->
+    <div class="row">
+
+       <div class="col-lg-2 col-xs-2  teach_div">
+           <div class="input-group">
+               <input type="text" class="form-control" placeholder="请输入..." aria-describedby="basic-addon2" id="teach_input_so">
+               <span class="input-group-addon" id="basic-addon2">搜索</span>
+           </div>
+       </div>
+        <div class="col-lg-2 col-xs-3 col-lg-offset-7 col-xs-offset-7" id="teach_dao">
+            <p class="btn btn-primary tianjia"  data-toggle="modal" data-target="#myModal" >添加</p>     <!-- 添加教职工的的按钮  -->
+            <p class="btn btn-primary daochu" id="teach_daochu">导出数据</p>
+        </div>
+    </div>
+   <div class="row">
+       <div class="col-lg-12 col-xs-12 table-responsive">
+
+           <table class="table-hover table table-bordered table-striped" id="teach_table">
+               <thead>
+                <tr class="info text-center">
+
+                </tr>
+               </thead>
+
+               <tbody id="tbody">
+
+
+               </tbody>
+
+           </table>
+
+
+       </div>
+   </div>
+      <!--  添加教职工-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">更新教职工信息</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="" class="form-horizontal">
+                       <!-- <div class="myInput">
+                            <label for="">新职工编号：</label>
+                            &lt;!&ndash; <span>姓名：</span>&ndash;&gt;
+                            <input type="text" id="teacher_Bianhao">
+                        </div>-->
+                        <div class="myInput">
+                            <label for="">新职工姓名：</label>
+                           <!-- <span>姓名：</span>-->
+                            <input type="text" id="teacher_Name">
+                        </div>
+                        <div class="myInput">
+                            <label for="">新职工电话：</label>
+                            <input type="text" id="teacher_Phone">
+                        </div>
+                        <div class="myInput">
+                            <label for="">新职工部门：</label>
+                            <!--<input type="text" id="teacher_Bumen">-->
+                            <select id="teacher_Bumen" name="">
+
+                            </select>
+                        </div>
+                        <div class="myInput">
+                            <label for="">新职工邮箱：</label>
+                            <input type="text" id="teacher_Meail">
+                        </div>
+                        <div class="myInput">
+                            <label for="">新职工年龄：</label>
+                            <input type="text" id="teacher_Age">
+                        </div>
+                        <div class="myInput">
+                            <label for="teacher_Sex">新职工性别：</label>
+                            <select name="" id="teacher_Sex">
+                                <option value="男">男</option>
+                                <option value="女">女</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="teach_tianjia">确定</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 编辑教职工-->
+
+    <div class="modal fade" id="myModall" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabell">编辑教职工信息</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="" class="form-horizontal">
+                       <!-- <div class="myInput">
+                            <label for="">编号：</label>
+                            &lt;!&ndash; <span>姓名：</span>&ndash;&gt;
+                            <input type="text" id="teacher_Bianhaol">
+                        </div>-->
+                        <div class="myInput">
+                            <label for="">姓名：</label>
+                            <!-- <span>姓名：</span>-->
+                            <input type="text" id="teacher_Namel">
+                        </div>
+                        <div class="myInput">
+                            <label for="">电话：</label>
+                            <input type="text" id="teacher_Phonel">
+                        </div>
+                        <div class="myInput">
+                            <label for="">部门：</label>
+                          <!--  <input type="text" id="teacher_Bumenl">-->
+                            <select name="" id="teacher_Bumenl">
+
+                            </select>
+                        </div>
+                        <div class="myInput">
+                            <label for="">邮箱：</label>
+                            <input type="text" id="teacher_Meaill">
+                        </div>
+                        <div class="myInput">
+                            <label for="">年龄：</label>
+                            <input type="text" id="teacher_Agel">
+                        </div>
+                        <div class="myInput">
+                            <label for="teacher_Sex">性别：</label>
+                            <select name="" id="teacher_Sexl">
+                                <option value="男">男</option>
+                                <option value="女">女</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="teach_tianjial">保存</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--分页-->
+    <div class="row">
+        <div  class="col-lg-2 col-lg-offset-9 col-xs-2 col-xs-offset-9">
+            <nav aria-label="Page navigation">
+                <ul class="pagination" id="teach_ul">
+                    <li>
+                        <a href="#" aria-label="Previous" id="teach_left">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+
+                    <li id="teach_myli" >
+                        <a href="#" aria-label="Next" id="teach_right">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+
+    
+    
+</div>
+<!-- Small modal -->
+<div class="modal fade bs-example-modal-sm" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="smallModalText">无法删除当前登录的管理员！</div>
+      </div>
+    </div>
+  </div>
+
+
+<script src="../lib/bootstrap-3.3.5-dist/js/jquery-1.11.3.js"></script>
+<script src="../lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+<!--<script src="../js/data.js"></script>-->
+<script src="../lib/jquery-table2excel-master/dist/jquery.table2excel.min.js"></script>
+<script>
+
+    //数据缓存到浏览器
+    var userTeacherJS=sessionStorage.getItem("userTeacher")
+    teachers=JSON.parse(userTeacherJS);
+
+
+    var bumensJS=sessionStorage.getItem("bumens")
+    bumens=JSON.parse(bumensJS);
+    console.log(bumens)
+    //添加信息
+    $("#teach_tianjia").on("click",function () {
+       /* console.log(111)*/
+        /*let teach_bianhao = parseInt($("#teacher_Bianhao").val())*/
+
+
+        let teach_xingming=$("#teacher_Name").val()
+
+        let teach_nianlin = $("#teacher_Age").val()
+        let teach_xingbie = $("#teacher_Sex").val()
+        /*console.log(teach_xingbie)*/
+        let teach_youxiang = $("#teacher_Meail").val()
+        let teach_haoma = $("#teacher_Phone").val()
+        let teach_bumen = $("#teacher_Bumen").val()
+      console.log(teach_bumen)
+        for(let aa =0;aa<bumens.length;aa++){
+            if(teach_bumen==bumens[aa].bumenName){
+                bumens[aa].bumenNum=parseInt(bumens[aa].bumenNum)+1
+            }
+        }
+        if(teach_xingming=="" || teach_nianlin=="" || teach_xingbie=="" || teach_youxiang=="" || teach_haoma==""||teach_bumen==""){
+                $('#smallModal').modal();
+                $('.smallModalText').text("每一项都为必填。")
+        }else{
+            /* console.log(teachers[teachers.length-2]) */
+            teachers.push({
+                teacherId:parseInt(teachers[teachers.length-1].teacherId)+1,
+                teacherName:teach_xingming,
+                teacherAge:teach_nianlin,
+                teacherSex:teach_xingbie,
+                teacherEmial:teach_youxiang,
+                teacherCall:teach_haoma,
+                section:teach_bumen,
+
+            })
+        }
+
+        //每次点加添加  里面的内容都重新清空
+        $("#teacher_Bianhao").val("")
+        $("#teacher_Name").val("")
+
+        $("#teacher_Age").val("")
+        $("#teacher_Sex").val("")
+        /*console.log(teach_xingbie)*/
+        $("#teacher_Meail").val("")
+        $("#teacher_Phone").val("")
+        $("#teacher_Bumen").val("")
+        shujuxuanran("#teach_table",0,teachers,false)
+        //重新存储缓存数据
+        sessionStorage.setItem('bumens', JSON.stringify(bumens));
+        sessionStorage.setItem("userTeacher",JSON.stringify(teachers))
+        fenye("#teach_myli",teachers,false)
+       /* console.log(teachers.length)*/
+    })
+    //页面准备好是展示的函数
+
+    var teach_page = 0
+    $(document).ready(function () {
+
+        shujuxuanran("#teach_table",0,teachers,true)
+        fenye("#teach_myli",teachers,true)
+
+       /* console.log(teachers.length)*/
+        //给生成的每个分页 添加点击事件   用父元素on  下发到.teach_list  身上
+        $("#teach_ul").on("click",".teach_list",function () {
+            let  teach_aa = $(this).text()
+           /* console.log(teach_aa)*/
+            let teach_bb = (teach_aa-1)*teach_tiaoshu
+            teach_page=teach_bb
+            shujuxuanran("#teach_table",teach_bb,teachers,false)
+        })
+
+
+        //点击右键的函数
+        $("#teach_right").click(function () {
+          /*  console.log(teachers.length)*/
+            if(teach_page<teachers.length-5){
+                teach_page=teach_page+teach_tiaoshu
+                shujuxuanran("#teach_table",teach_page,teachers,false)
+            }
+
+
+        })
+        //点加左键的函数
+        $("#teach_left").click(function () {
+
+
+            if(teach_page>0){
+                teach_page=teach_page-teach_tiaoshu
+                shujuxuanran("#teach_table",teach_page,teachers,false)
+            }
+
+        })
+      //导出数据
+        $("#teach_daochu").click(function () {
+           /* console.log(456)*/
+            $("#teach_table").table2excel({
+
+                filename:"教职工管理-"+".xls"
+            })
+        })
+    })
+
+
+
+    const teach_tiaoshu = 5    //每页显示5条数据
+    //数据渲染
+    //teach_table表示为哪一个表单添加   teach_num表示从第几条开始显示   teach_arr表示为数据库中的哪一个数组
+    //teach_bola的值为true或者false用来判断表头是否显示   第一次渲染为true 为显示     后面为false  表头就不在重复显示
+    function shujuxuanran(teach_table,teach_num,teach_arr,teach_bola) {
+      /*  console.log(teachers)*/
+        if(teach_bola==true){
+
+            for(let item in teach_arr[0]){
+               /* console.log(item)*/
+                if(item=="teacherId"){
+                    $(`${teach_table} thead tr`).append("<td>编号</td>>")
+                }else if(item=="teacherName"){
+                    $(`${teach_table} thead tr`).append("<td>姓名</td>>")
+                }else if(item=="teacherCall"){
+                    $(`${teach_table} thead tr`).append("<td>手机号码</td>>")
+                }else if(item=="section"){
+                    $(`${teach_table} thead tr`).append("<td>部门</td>>")
+                }else if(item=="teacherEmial"){
+                    $(`${teach_table} thead tr`).append("<td>邮箱</td>>")
+                }else if(item=="teacherAge"){
+                    $(`${teach_table} thead tr`).append("<td>年龄</td>>")
+                }else if(item=="teacherSex"){
+                    $(`${teach_table} thead tr`).append("<td>性别</td>>")
+                }
+            }
+            $(`${teach_table} thead tr`).append("<td>操作</td>>")
+        }
+
+        //在执行下面一个循环是现将表格身体里面的数据清空，及将html为空
+        $(`${teach_table} tbody`).html("")
+
+
+        for(let i =teach_num;i<teach_num+teach_tiaoshu;i++){
+
+            //判断i小于数组的长度   才能添加  避免 最后一页 超过数组的i的td 找不到下标
+            //编号自动生成  不从数据库提取
+            if(i<teach_arr.length){
+                $(`${teach_table} tbody`).append(`
+              <tr>
+              <td>${i+1}</td>
+              <td>${teach_arr[i].teacherName}</td>
+              <td>${teach_arr[i].teacherAge}</td>
+              <td>${teach_arr[i].teacherSex}</td>
+              <td>${teach_arr[i].teacherEmial}</td>
+              <td>${teach_arr[i].teacherCall}</td>
+              <td>${teach_arr[i].section}</td>
+              <td>
+              <span data-toggle="modal" data-target="#myModall" class="teach_alter btn btn-primary">编辑</span>
+              <span></span>
+              <span class="teach_shanchu teach_dd btn btn-primary">删除</span>
+
+              </td>
+              </tr>>
+              `)
+            }
+        }
+        for(let a =0;a<bumens.length;a++){
+
+            $("#teacher_Bumen").append(`
+           <option>${bumens[a].bumenName}</option>
+           `)
+        }
+    }
+
+
+    //删除整行
+    //删除 的函数
+    $("#tbody").on("click",".teach_dd",function () {
+         //找到编号的值  用这个值来比较删除
+        let num = parseInt($(this).parent().parent().children()[0].innerText)
+        let bumenmen = $(this).parent().parent().children()[6].innerText
+        console.log(bumenmen)
+        for(let bb=0;bb<bumens.length;bb++){
+            if(bumenmen==bumens[bb].bumenName){
+                bumens[bb].bumenNum-=1
+            }
+        }
+        sessionStorage.setItem('bumens', JSON.stringify(bumens));
+       /* console.log(num)*/
+        let aa = $(this).parent().parent().remove()
+        teachers.splice(num-1,1)
+        for(let i=0;i<teachers.length;i++){
+            if(i>=num-1){
+                teachers[i].teacherId-=1
+            }
+        }
+        //重新缓存   重新渲染
+        sessionStorage.setItem("userTeacher",JSON.stringify(teachers))
+        shujuxuanran("#teach_table",0,teachers,false)
+
+        fenye("#teach_myli",teachers,false)
+
+    })
+     //分页的操作
+    //elent表示 给哪一个元素的进行操作   arr为具体哪个数组
+    function fenye(elent,arr,teach_to) {
+        /* console.log(arr.length)*/
+        if(teach_to==true){
+            for(let i =0;i<Math.ceil(arr.length/teach_tiaoshu);i++){
+                $(`${elent}`).before(`
+
+              <li class="teach_list"><a href="#">${i+1}</a></li>
+           `)
+            }
+        }else if(teach_to==false){
+
+            $(".teach_list").html("")
+            for(let i =0;i<Math.ceil(arr.length/teach_tiaoshu);i++){
+                $(`${elent}`).before(`
+
+              <li class="teach_list"><a href="#">${i+1}</a></li>
+           `)
+            }
+        }
+
+    }
+
+    //编辑
+var whichNum;
+   $("#teach_table tbody").on("click",".teach_alter",function () {
+
+     /*$("#myModall").modal()*/
+       $("#teacher_Bumenl").html("")
+       for(let j =0;j<bumens.length;j++){
+           $("#teacher_Bumenl").append(`
+           <option>${bumens[j].bumenName}</option>>
+           `)
+
+       }
+       //模态框显示的信息
+     $("#teacher_Bianhaol").val($(this).parent().parent().children()[0].innerText)
+
+       $("#teacher_Namel").val($(this).parent().parent().children()[1].innerText)
+       $("#teacher_Phonel").val($(this).parent().parent().children()[5].innerText)
+       $("#teacher_Bumenl").val($(this).parent().parent().children()[6].innerText)
+       let teach_bu1=$(this).parent().parent().children()[6].innerText
+       $("#teacher_Meaill").val($(this).parent().parent().children()[4].innerText)
+       $("#teacher_Agel").val($(this).parent().parent().children()[2].innerText)
+       $("#teacher_Sexl").val($(this).parent().parent().children()[3].innerText)
+       /*console.log($(this).parent().parent().children()[3].innerText)*/
+       whichNum = $(this).parent().parent().children()[0].innerText
+       for(let o=0;o<bumens.length;o++){
+           if(teach_bu1==bumens[o].bumenName&&bumens[o].bumenNum>0){
+               bumens[o].bumenNum-=1
+              /* console.log(bumens[o].bumenNum)*/
+           }
+       }
+
+      /* sessionStorage.setItem('bumens', JSON.stringify(bumens));*/
+   /*console.log(teach_bu1)*/
+       for(let i =0;i<teachers.length;i++){
+
+
+           //判断点击的哪一个编辑    等于前面的id   就修改哪一条
+      if($(this).parent().parent().children()[0].innerText==teachers[i].teacherId){
+
+          $("#teach_tianjial")[0].onclick=function(){
+
+
+              teachers.splice(i,1,{
+
+                  teacherId:parseInt(whichNum) ,
+                  teacherName:$("#teacher_Namel").val(),
+                  teacherAge:$("#teacher_Agel").val(),
+                  teacherSex:$("#teacher_Sexl").val(),
+                  teacherEmial:$("#teacher_Meaill").val(),
+                  teacherCall:$("#teacher_Phonel").val(),
+                  section:$("#teacher_Bumenl").val(),
+              })
+
+              let teach_bu2 = $("#teacher_Bumenl").val()
+                  console.log(teachers)
+              for(let p=0;p<bumens.length;p++){
+                  if(teach_bu2==bumens[p].bumenName){
+                      bumens[p].bumenNum=parseInt(bumens[p].bumenNum)+1
+                  }
+              }
+              sessionStorage.setItem('bumens', JSON.stringify(bumens));
+              /* console.log(teachers)*/
+              $("#teach_table tbody tr").remove()
+              sessionStorage.setItem("userTeacher",JSON.stringify(teachers))
+
+              shujuxuanran("#teach_table",0,teachers,false)
+
+
+          }
+      }
+       }
+
+   })
+
+
+
+      // 搜索框用了  字符串的匹配
+    $("#basic-addon2").click(function () {
+
+        let teach_sousuo=$("#teach_input_so").val()
+
+        for(let i =0;i<teachers.length;i++){
+            let arr =[]
+            let aa =teachers[i].teacherId
+            let bb =teachers[i].teacherName
+            let cc =teachers[i].section
+            if(teach_sousuo==aa){
+                console.log(123)
+                $("#teach_table tbody tr").html("")
+                $("#teach_table tbody").append(`
+              <tr>
+              <td>${teachers[i].teacherId}</td>
+              <td>${teachers[i].teacherName}</td>
+              <td>${teachers[i].teacherAge}</td>
+              <td>${teachers[i].teacherSex}</td>
+              <td>${teachers[i].teacherEmial}</td>
+              <td>${teachers[i].teacherCall}</td>
+              <td>${teachers[i].section}</td>
+              <td>
+              <span data-toggle="modal" data-target="#myModall"  class="teach_alter btn btn-primary">编辑</span>
+              <span></span>
+              <span class="teach_shanchu teach_dd teach_shanchu teach_dd btn btn-primary" >删除</span>
+
+              </td>
+              </tr>>
+              `)
+                arr.push(i)
+                fenye("#teach_myli",arr,false)
+                arr=[]
+            }else if(teach_sousuo==bb){
+                console.log(123)
+                $("#teach_table tbody tr").html("")
+                $("#teach_table tbody").append(`
+              <tr>
+              <td>${teachers[i].teacherId}</td>
+              <td>${teachers[i].teacherName}</td>
+              <td>${teachers[i].teacherAge}</td>
+              <td>${teachers[i].teacherSex}</td>
+              <td>${teachers[i].teacherEmial}</td>
+              <td>${teachers[i].teacherCall}</td>
+              <td>${teachers[i].section}</td>
+              <td>
+              <span data-toggle="modal" data-target="#myModall"  class="teach_alter btn btn-primary">编辑</span>
+              <span></span>
+              <span class="teach_shanchu teach_dd teach_shanchu teach_dd btn btn-primary">删除</span>
+
+              </td>
+              </tr>>
+              `)
+                arr.push(i)
+                fenye("#teach_myli",arr,false)
+                arr=[]
+            }else if(teach_sousuo==cc){
+                $("#teach_table tbody tr").html("")
+                    $("#teach_table tbody").append(`
+                    <tr>
+                    <td>${teachers[i].teacherId}</td>
+                    <td>${teachers[i].teacherName}</td>
+                    <td>${teachers[i].teacherAge}</td>
+                    <td>${teachers[i].teacherSex}</td>
+                    <td>${teachers[i].teacherEmial}</td>
+                    <td>${teachers[i].teacherCall}</td>
+                    <td>${teachers[i].section}</td>
+                    <td>
+                    <span data-toggle="modal" data-target="#myModall"  class="teach_alter btn btn-primary">编辑</span>
+                    <span></span>
+                    <span class="teach_shanchu teach_dd teach_shanchu teach_dd btn btn-primary">删除</span>
+
+                    </td>
+                    </tr>>
+                    `)
+                arr.push(i)
+                fenye("#teach_myli",arr,false)
+                arr=[]
+            }else if(teach_sousuo==""){     //==空 时重新渲染整个页面
+                shujuxuanran("#teach_table",0,teachers,false)
+            }/*else{
+                alert("未搜索到相应内容，请重新搜索。。")
+                console.log(1122)
+                break
+            }*/
+        }
+    })
+
+
+</script>
+</body>
+</html>

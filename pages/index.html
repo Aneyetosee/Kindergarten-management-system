@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <link rel="stylesheet" href="../lib/bootstrap-3.3.5-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../font/iconfont.css">
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/index.css"/>
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <section class="clear">
+        <!-- 左菜单 -->
+        <div class="index-leftNav fl">
+            <div class="index-userAbout">
+                <div id="index-headPortrait"><img src="" alt="pic" class="index-image"></div>
+                <div class="index-userChoose">
+                    <div class="index-userName">
+                        <span class="index-userNameText"></span>
+                        <span class="iconfont index-instructions">&#xe615;</span>
+                    </div>
+                    <ul class="index-uesrMenu">
+                        <li class="personalInformation">个人信息</li>
+                        <li class="index-logout">注销</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 数据渲染菜单内容 -->
+            <div class="index-lefeNavContent">
+                <ul>
+                </ul>
+            </div>
+        </div>
+        <!-- 右菜单 -->
+        <div class="index-rightNav fl">
+            <div class="index-rightNavContent clear">
+                <div class="index-rightNavLeftAbout fl">
+                    <ul class="index-rightNavLeftAboutContent">
+                        <li class="index-rightNavLeftAboutMenu"><span class="iconfont">&#xe65d;</span></li>
+                    </ul>
+                </div>
+                <div class="index-rightNavLeftText fl">
+                    <span>安安幼儿园管理系统欢迎您：</span>
+                    <span class="index-userNameText"></span>
+                    <span>！</span>
+                </div>
+                <div class="index-rightNavRightAbout fl">
+                    <div class="clear">
+                        <p class="iconfont index-emailQuick fl">&#xe602;<span class="index-emailQuickNum">0</span></p>
+                        <div class="index-rightNavRightTheme fl">
+                            <p class="iconfont index-rightNavRightClick">&#xe65e;</p>
+                            <ul class="index-rightNavRightThemeContent clear">
+                                <li class="fl"><div class="index-rightNavRightThemeText">注销</div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- iframe -->
+        <div class="index-rightIframe fl">
+            <div>
+                <ol class="breadcrumb index-breadNav">
+                    <li class="active">首页</li>
+                </ol>
+            </div>
+            <iframe src="indexPage.html" frameborder="0" name="myiframe" scrolling="auto" class="myiframe" allowtransparency="true"></iframe>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="index-Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">个人信息修改</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="index-reviseAll">
+                        <div class="form-group">
+                            <label for="index-reviseUser" class="control-label index-reviseUserLabel">昵称:</label>
+                            <div>
+                                <div class="index-reviseUserDiv">
+                                    <input class="index-reviseUser" id="index-reviseUser" maxlength="30"></input>
+                                </div>
+                            </div>
+                            <div class="index-prompt1"></div>
+                        </div>
+                        <div class="clear">
+                            <div class="form-group fl">
+                                <label for="login-revisePassword" class="control-label index-revisePasswordLabel">请输入新密码：</label>
+                                <div class="index-login-revisePasswordDiv">
+                                    <input  type="password" name="password" class="login-revisePassword" id="login-revisePassword" maxlength="30"></input>
+                                </div>
+                                <div class="index-prompt2"></div>
+                            </div>
+                            <div class="form-group index-confirmOut fl">
+                                <label for="index-confirm" class="control-label index-confirmLabel">请确认新密码：</label>
+                                <div class="index-confirmDiv">
+                                    <input  type="password" name="password" class="index-confirm" id="index-confirm" maxlength="30"></input>
+                                </div>
+                                <div class="index-prompt3"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-default cancel" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn-primary saveAdd" id="saveAdd">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal -->
+    <div class="modal fade" id="index-headModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">请选择图片修改</h4>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <div class="yulan"><img src="" alt="pic" id="yulanPic"></div>
+                        <div><input type="file" name="choosePic" id="choosePic"></div>
+                        <div class="index-imgPrompt"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-default cancel" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn-primary saveAdd" id="addPic">保存</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <script src="../lib/bootstrap-3.3.5-dist/js/jquery-1.11.3.js"></script>
+    <script src="../lib/bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+    <script src="../js/index.js"></script>
+</body>
+</html>

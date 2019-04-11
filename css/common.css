@@ -1,0 +1,85 @@
+/* 综合清理 */
+body,
+form,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+header,
+menu,
+footer,
+section,
+iframe,
+video,
+article,
+button {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-size: 14px;
+    font-family: "Microsoft YaHei UI";
+    /* -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    user-select: none; */
+}
+a {
+    outline: 0;
+    text-decoration: none;
+}
+a:hover,
+a:visited{
+    outline: 0;
+    text-decoration: none;
+}
+img {
+    border: 0;
+}
+ul,
+li {
+    list-style: none;
+}
+table,
+td {
+    border-collapse: collapse;
+    vertical-align: top;
+}
+input {
+    outline: none;
+}
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+.clear:before,
+.clear:after {
+    content: '';
+    display: table;
+}
+.clear:after{
+    clear:both;
+}
+.clear{
+    *zoom:1;
+}
+
+/* 浮动 */
+.fl {
+    float: left;
+}
+.fr {
+    float: right
+}

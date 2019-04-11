@@ -1,0 +1,93 @@
+.kq-h1{
+    font-size: 36px;
+    height: 42px;
+    color: #5bc0de;
+    bottom: 10px;
+}
+#main{
+    height: 400px;
+}
+.kq-h2{
+    margin-top: 50px;
+}
+.kq-div3{
+    width: 400px;
+    margin-top: 10px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+/* .kq-bt1{
+    position: absolute;
+    margin-left: 990px;
+    margin-top: -33px;
+} */
+.kq-div4{
+    width: 100%;
+    margin: 50px auto;
+}
+#mytable{
+    margin-top: 10px;
+}
+#mytable>tbody>tr>td,
+#mytable>thead>tr>th{
+    text-align: center;
+}
+.kq-div5{
+    margin-top: 10px;
+}
+.kq-div6,
+.kq-div7{
+    margin-top: 20px;
+}
+.kq-div8{
+    width: 500px;
+}
+#kq-btn2{
+    /* width: 60px;
+    height: 30px;
+    border-radius: 4px; */
+    margin-left: 400px;
+    /* line-height: 30px; */
+    position: absolute;
+}
+#kq-btn3{
+    position: absolute;
+}
+#studentId,
+#studentName,
+#studentsClass,
+#arrivalTime,
+#leaveTime,
+#attendance{
+    height: 40px;
+}
+
+.kq-btn4{
+    text-align: center;
+}
+/* .cq-btn8{
+    position: relative;
+    top:-34px;
+    z-index: -1;
+} */
+.kq-bt4,
+.kq-bt5{
+    margin-left: 5px;
+}
+.mybaocun{
+    display: none
+}
+.MyBtn{
+    position: relative;
+}
+.myXie{
+    position: relative;
+    top:0;
+    left: 0;
+}
+
+.smallModalText{
+    height:50px;
+    line-height: 50px;
+    text-align: center;
+}

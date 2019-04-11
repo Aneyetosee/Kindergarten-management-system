@@ -1,0 +1,93 @@
+#limitTable{
+    text-align: center;
+}
+.allContent{
+    position: relative;
+    padding-top:30px;
+}
+h3{
+    margin:20px 0 10px;
+}
+button,.myul>li>span,.alter,.del,.look{
+    width: 60px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    margin-right: 5px;
+    line-height: 30px;
+    cursor: pointer;
+}
+.add{
+    float: right;
+    margin-bottom: 10px;
+    background-color: #449D44;
+}
+.del,.cancel{
+    background-color: #C9302C;
+    display: inline-block;
+    color: white;
+}
+.alter,.saveAdd{
+    background-color: #31B0D5;
+    display: inline-block;
+}
+.alter:hover,
+.saveAdd:hover{
+    background-color: rgba(49, 176, 213, 0.6);
+    color: white;
+    /* color:rgb(207, 206, 206); */
+}
+.myul>li>span:hover,
+.del:hover,
+.cancel:hover{
+    background-color: rgba(201, 48, 44, 0.6);
+    color: white;
+}
+.add:hover,
+.look:hover{
+    background-color: rgba(68, 157, 68, 0.6);
+    color: white;
+}
+.taskBlock{
+    display: inline-block;
+}
+input{
+    text-indent: 1em;
+}
+.taskBlock>input{
+    width: 200px;
+    height: 30px;
+    outline: none;
+}
+.addDiv{
+    position: relative;
+}
+.promptWords1,
+.promptWords2,
+.promptWords3{
+    color:red;
+    position: absolute;
+}
+.promptWords1{
+    top:26px;
+    left:42px;
+}
+.promptWords2{
+    top:26px;
+    left:295px;
+}
+.promptWords3{
+    bottom:1px;
+    left:175px;
+}
+.myPage{
+    position: absolute;
+    top:370px;
+    right:250px;
+}
+.smallModalText{
+    height:50px;
+    line-height: 50px;
+    text-align: center;
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>权限管理</title>
+    <link rel="stylesheet" href="../lib/bootstrap-3.3.5-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../font/iconfont.css">
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/privilegeManagement.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <section class="allContent">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="taskBlock">
+                        <input class="inputPhoto inputBox" type="text">
+                    </div>
+                    <button class="add" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myAddModal">添加</button>
+                    <table id="limitTable" class="table table-hover table-bordered table-striped">
+                        <thead>
+                            <tr class="info"></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <nav aria-label="Page navigation" class="myPage">
+            <ul class="pagination clickPage">
+                <li class="previousPage">
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="Next">
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+    
+    <!-- 添加Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">权限更改</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <span>账号名：</span>
+                            <input type="text" id="idName" maxlength="30">
+                            <span>用户昵称：</span>
+                            <input type="text" id="UserName" maxlength="30"><br><br>
+                            <span>权限选择：</span>
+                            <select name="chooseLimit" id="chooseLimit">
+                                <option value="请选择">请选择</option>
+                                <option value="teacher">teacher</option>
+                                <option value="director">director</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-default cancel" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn-primary save" data-dismiss="modal">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 添加Modal -->
+    <div class="modal fade" id="myAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">添加新权限</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1 addDiv">
+                            <span>账号名：</span>
+                            <input type="text" id="addIdName" maxlength="30">
+                            <span>用户昵称：</span>
+                            <input type="text" id="addUserName" maxlength="30"><br><br>
+                            <span>权限选择：</span>
+                            <select name="addchooseLimit" id="addChooseLimit">
+                                <option value="请选择">请选择</option>
+                                <option value="teacher">teacher</option>
+                                <option value="director">director</option>
+                            </select>
+                            <div class="promptWords1"></div>
+                            <div class="promptWords2"></div>
+                            <div class="promptWords3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-default cancel" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn-primary saveAdd">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Small modal -->
+    <div class="modal fade bs-example-modal-sm" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="smallModalText">无法删除当前登录的管理员！</div>
+          </div>
+        </div>
+      </div>
+    <script src="../lib/bootstrap-3.3.5-dist/js/jquery-1.11.3.js"></script>
+    <script src="../lib/bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+    <script src="../js/privilegeManagement.js"></script>
+</body>
+</html>

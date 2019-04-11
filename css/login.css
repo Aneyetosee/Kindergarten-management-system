@@ -1,0 +1,218 @@
+
+.login-bg{
+    width:100%;
+    height:669px;
+    background: url(../images/login-BG.jpg)
+    no-repeat;
+    background-size: cover;
+}
+.login-text{
+    padding-top:100px;
+}
+.login-text>p{
+    font-size: 40px;
+    font-weight: 900;   
+    color:rgba(255, 255, 255, 0.473);
+    text-align: center;
+}
+.login-from{
+    margin-top:50px;
+    background-color: #fafafa77;
+    padding:40px 0;
+    border-radius: 10px;
+    border:1px solid #eee;
+    position: relative;
+}
+.login-from::before{
+    content:'欢迎登陆';
+    width:25%;
+    height:20px;
+    font-size: 12px;
+    background-color:#32B9CD;
+    position: absolute;
+    left:10%;
+    top:-10px;
+    text-align: center;
+    line-height:20px;
+    color:#fff;
+    transform: rotate(-10deg);
+}
+.login-from>div{
+    width:50%;
+}
+.login-userNameDiv,
+.login-userPasswordDiv,
+.login-userVerificationContent{
+    margin:20px auto;
+    height:30px;
+    border-bottom: 1px solid #ccc;
+}
+.login-userNameDiv>span{
+    font-size: 20px;
+    color: #32B9CD;
+    cursor: pointer;
+}
+#userName,
+#userPassword{
+    width:87%;
+    border:none;
+    outline: none;
+    padding-left:6px;
+    color: #32B9CD;
+    font-size: 16px;
+    background-color: #fafafa77;
+}
+#userName::-webkit-input-placeholder{
+    color: #32B9CD;
+    font-size: 14px;
+    opacity: .6;
+}
+.login-userPasswordDiv>span{
+    font-size: 20px;
+    color: #d4237a;
+    cursor: pointer;
+}
+#userPassword,
+#userPassword::-webkit-input-placeholder{
+    color: #d4237a;
+}
+#userPassword::-webkit-input-placeholder{
+    font-size: 14px;
+    opacity: .6;
+}
+.login-userVerificationContent>div:first-child>span{
+    font-size: 20px;
+    color:#13227a;
+    cursor: pointer;
+}
+.login-userVerificationInputDiv{
+    width:60%;
+}
+#verificationInput{
+    width:100%;
+    border:none;
+    outline: none;
+    padding-left:6px;
+    color: #13227a;
+    background-color: #fafafa;
+}
+#verificationInput::-webkit-input-placeholder{
+    color: #13227a;
+    font-size: 12px;
+    opacity: .6;
+}
+#verification{  
+    font-family:Arial;  
+    font-style:italic;  
+    font-weight:bold;  
+    border:0;  
+    letter-spacing:2px;  
+    color:blue;  
+}
+
+.login-other{
+    width:50%;
+    margin:0 auto;
+}
+.login-forgetPassword{
+    color:#32B9CD;
+    cursor: pointer;
+}
+.login-signIn{
+    width:50%;
+    margin:20px auto;
+}
+.login-signInBtn{
+    width:100%;
+    height:40px;
+    line-height: 40px;
+    background-color: #32B9CD;
+    outline: none;
+    border:none;
+    color:#fafafa;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.promptWordsName{
+    color:red;
+    position: absolute;
+    top:90px;
+    left:265px;
+}
+.promptWordsPassword{
+    color:red;
+    position: absolute;
+    top:138px;
+    left:265px;
+}
+.promptWordsVerification{
+    color:red;
+    position: absolute;
+    top:190px;
+    left:255px;
+}
+
+.login-phoneLabel{
+    display: block;
+}
+
+.login-phoneVerification,
+.login-phoneVerification2{
+    width:30%;
+    height:30px;
+    border:1px solid #32B9CD;
+    border-right:none;
+    border-radius: 5px 0 0 5px;
+}
+#inputMessageText{
+    width:90%;
+}
+.login-phoneForm{
+    margin-left:20%;
+    position: relative;
+}
+.login-phoneVerification2{
+    border:1px solid #d9534f;
+    border-radius: 5px;
+}
+#messageText,
+.login-getVerificationInput{
+    width:95%;
+    height:100%;
+    background-color: none;
+    border:none;
+    outline: none;
+    margin:0 6px;
+}
+.login-phoneVerificationContent{
+    width:18%;
+    height:30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #d4237a;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+}
+.login-phoneVerificationContent:hover{
+    background-color: #f32a8b;
+}
+.login-prompt{
+    color:red;
+    position: absolute;
+    top:55px;
+    left:5px;
+}
+
+
+.tishi{
+    position: absolute;
+    top:0;
+    left:0;
+}
+.tishi>p{
+    font-size: 20px;
+    color:red;
+}

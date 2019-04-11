@@ -1,0 +1,20 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Microsoft YaHei UI";
+    font-size: 14px;
+}
+.my_tr{
+    height: 47px;
+}
+.my_table{
+    height: 380px;
+    text-align: center;
+}
+.stuhead{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.Lspan{
+    color: red;
+}

@@ -1,0 +1,182 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Microsoft YaHei UI";
+    font-size: 14px;
+}
+#myTextarea>textarea{
+    width: 90%;
+    margin-left: 5%;
+    height: 130px;
+    border: 1px rgba(0,0,0,0.4) solid;
+    resize: none;
+    text-indent: 1em;
+    padding-top: 5px;
+}
+h3{
+    margin-left: 5%;
+    margin-bottom: 20px;
+}
+.send{
+    width: 90%;
+    margin-left: 5%;
+    height: 50px;
+    border: 1px rgba(0,0,0,0.4) solid;
+    border-top: none;
+    overflow: hidden;
+}
+.glyphicon-picture{
+    position: absolute;
+    color: rgba(0,0,0,0.7);
+    margin-left: 20px;
+    font-size: 22px;
+    left: 6%;
+    top: 208px;
+    z-index: -1;
+}
+.send>input{
+    opacity: 0;
+    margin-top: 14px;
+    margin-left: 20px;
+    z-index: 999;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: 6%;
+    top: 195px;
+}
+#imgContentImg{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 10%;
+    top: 200px;
+    z-index: 999;
+}
+button,.emailSend,.emailClose{
+    width: 60px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    margin-right: 5px;
+    line-height: 30px;
+    cursor: pointer;
+    text-align: center;
+}
+.emailClose{
+    background-color: #449D44;
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+.emailClose:hover{
+    background-color: rgba(68, 157, 68, 0.6);
+    color: white;
+}
+.send>button,.emailSend{
+    float: right;
+    background-color: #31B0D5;
+    margin-top: 10px;
+    margin-right: 40px;
+}
+.send>button:hover,.emailSend:hover{
+    background-color: rgba(49, 176, 213, 0.6);
+    color: white;
+}
+.send>span{
+    margin-left: 70%;
+}
+#myselect{
+    margin-left: 0.5%;
+    margin-top: 10px;
+    width: auto;
+    padding-left: 1%;
+    height: 30px;
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    padding-right: 14px;
+    outline: none;
+}
+.textbox{
+    width: 27%;
+    background: url("../images/公告背景.jpg") no-repeat;
+    background-size: 100% 100%;
+    background-position: bottom;
+    border-radius: 8px;
+    height: 350px;
+    float: left;
+    margin-left: 4.75%;
+    margin-top: 30px;
+    -moz-box-shadow: 2px 2px 10px #909090;
+    -webkit-box-shadow: 2px 2px 10px #909090;
+    box-shadow:2px 2px 10px #909090;
+    overflow: auto;
+}
+.textbox h3{
+    margin-top: 60px;
+    text-align: center;
+}
+.box1 h3{
+    color: rgb(90, 174, 255);
+    position: absolute;
+    top: 210px;
+    left: 10%;
+}
+.box2 h3{
+    color: rgb(255, 200, 134);
+    position: absolute;
+    top: 210px;
+    left: 41%;
+}
+.box3 h3{
+    color: rgb(255, 160, 155);
+    position: absolute;
+    top: 210px;
+    left: 72%;
+}
+/* .textbox span:nth-of-type(1){
+
+} */
+.textbox span{
+    margin-left: 6%;
+}
+.textbox p{
+    display: inline-block;
+}
+.textbox div{
+    margin-left: 55%;
+    font-size: 12px;
+}
+.textbox>div{
+    margin-left:5%;
+    font-size: 14px;
+    margin-top: 60px;
+    height: 290px;
+    overflow: auto;
+}
+.textbox>div>div{
+    margin-left:0;
+    position: relative;
+    margin: 5px auto;
+}
+.textbox>div>div:hover{
+    -moz-box-shadow: 2px 2px 10px #909090;
+    -webkit-box-shadow: 2px 2px 10px #909090;
+    box-shadow:2px 2px 10px #909090;
+}
+.textbox>div>div:hover .glyphicon-remove{
+    display: block;
+}
+.glyphicon-remove{
+    position: absolute;
+    top: 30px;
+    left: 93%;
+    display: none;
+}
+.smallModalText{
+    height:50px;
+    line-height: 50px;
+    text-align: center;
+}
